@@ -11,5 +11,13 @@ output: 4
 */
 
 var maxSumOfMins = function(input) {
+       input.sort();
+       result = 0;
+       for(let i = 0; i < input.length - 1; i++) {
+              if(i % 2 == 0) {
+                     result += input[i];
+              }
+       }
 
+       return result;
 };

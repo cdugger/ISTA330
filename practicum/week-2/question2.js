@@ -10,6 +10,16 @@ Example: input: cookies = [3, 5, 8] , extraCookies = 8
  */
 
  var canGetEqualCookies = function(cookies, extraCookies) {
-     
-    
+         // sort to find the max
+        cookies.sort();
+        let cookiesToMatchMax = 0;
+        // find the minimum number of cookies needed to make them equal
+        for(let i = 0; i < cookies.length; i++) {
+                cookiesToMatchMax += cookies[cookies.length-1] - cookies[i];
+        }
+        if(extraCookies < cookiesToMatchMax) {
+                return false;
+        }
+
+        return (extraCookies == cookiesToMatchMax || (extraCookies - cookiesToMatchMax) % cookies.length == 0);    
  };

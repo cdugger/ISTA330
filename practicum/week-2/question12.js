@@ -36,11 +36,29 @@ function allPartitions(input){
   }
   return result.concat(newPartitions);  
 }
-// Here is how you can use the utility function allPartitions:
-for (let partition of allPartitions("aba")) {
-  console.log(partition);
-}
 
 var maxBalanceNumber = function(input) {
+  max = 0;
+  for (let partition of allPartitions(input)) {
+    count = 0; // tracks # of balanced strings in current partition
+    for(let str of partition) {
+      aCount = 0;
+      bCount = 0;
+      for(let letter of str) {
+        if(letter === 'a') {
+          aCount++;
+        } else if(letter === 'b') {
+          bCount++;
+        }
+      }
+      if(aCount+bCount !== 0 && aCount === bCount) {
+        count++;
+      }
+    }
+    if(count > max) {
+      max = count;
+    }
+  }
 
+  return max;
 };
