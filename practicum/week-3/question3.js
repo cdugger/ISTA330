@@ -15,10 +15,14 @@ output: [
 var PascalTriangle = function(n) {
   let result = [];
   for(let i = 0; i < n; i++) {
-    let row = [1];
-    for(let j = 0; j < i + 1; j++) {
-      
+    let currRow = [1]; // each row starts with 1
+    for(let j = 1; j < i; j++) {
+      currRow.push(result[i-1][j-1] + result[i-1][j]);
     }
+    if(i > 0) {
+      currRow.push(1); // every row except for row 0 ends in a 1
+    }
+    result.push(currRow);
   }
-
+  return result;
 };
