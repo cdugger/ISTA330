@@ -12,5 +12,21 @@ output: 2
 */
 
 var m_element = function(input) {
-
+    let mVal = Math.floor(input.length / 2);
+    input.sort((a,b) => a-b);
+    for(let i = 0; i < input.length; i++) {
+        let count = 1;
+        let currElem = input[i];
+        for(let j = i; j < input.length; j++) {
+            if(input[j] != input[i]) {
+                i = j-1;
+                break;
+            }
+            count++;
+        }
+        if(count > mVal) {
+            return currElem;
+        }
+    }
+    return -1;
 };

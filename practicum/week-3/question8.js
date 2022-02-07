@@ -13,5 +13,12 @@ output: 3
 */
 
 var d_integer = function(input) {
-
+    input.sort((a,b) => b-a); // descending order
+    for(let elem of input) {
+        let count = input.filter(n => n === elem).length;
+        if(count === elem) {
+            return elem;
+        }
+    }
+    return -1;
 };
