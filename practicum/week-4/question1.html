@@ -54,7 +54,7 @@
        ];
 
        // Use the bootstrap grid system to display the flowers in a 2x4 grid.
-       let displayFlowers = (flowers) => {
+       let displayFlowers = () => {
             let root = document.querySelector('#flowersDiv');
             for(let i = 0; i < 2; i++) {
                 let row = document.createElement('div');
@@ -75,7 +75,7 @@
             }
         }
 
-       displayFlowers(flowers);
+       displayFlowers();
     </script>
 </body>
 </html>
